@@ -5,7 +5,7 @@ def talker():
     pub = rospy.Publisher('chatter', String, queue_size=10)
     pub2 = rospy.Publisher('chatter_2', String, queue_size=10)
 
-    rospy.init_node('talker', anonymous=True)
+    rospy.init_node('talker', anonymous=True, xmlrpc_port=45100, tcpros_port=45101)
     rate = rospy.Rate(1) # 10hz
     while not rospy.is_shutdown():
         hello_str = "hello world %s" % rospy.get_time()
